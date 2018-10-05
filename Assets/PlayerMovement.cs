@@ -14,15 +14,24 @@ public class PlayerMovement : MonoBehaviour
     public float red;
     public float green;
     public float blue;
-    
-
+    public Transform shipSpawn;
+    public float randomised_X_coordinates;
+    public float randomised_Y_coordinates;
+    public float ship_X_position;
+    public float ship_Y_position;
+    public Transform ship_position;
 
     // Use this for initialization
     void Start()
     {
-
+        //slumpar skeppets fart 
+        shipSpeed = Random.Range(1, 11);
+        //slumpar skeppet X och Y koordinater som sedan placeras på de koordinaterna med Vector3
+        randomised_X_coordinates = Random.Range(-8.5f, 8.5f);
+        randomised_Y_coordinates = Random.Range(-4.5f, 4.5f);
+        shipSpawn.position = new Vector3(randomised_X_coordinates, randomised_Y_coordinates);
     }
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -46,30 +55,33 @@ public class PlayerMovement : MonoBehaviour
             shipRend.color = new Color(0f, 1f, 0.07f);
         }
         //när S:knappen är nedtryckt halveras skeppets fart
-        if(Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S))
         {
             shipSpeed = shipSpeed / 2;
         }
         //när S;knappen släpps så dubblas skeppets fart
-        if(Input.GetKeyUp(KeyCode.S))
+        if (Input.GetKeyUp(KeyCode.S))
         {
             shipSpeed = shipSpeed * 2;
         }
         //när spacebar trycks ner randomiseras en färg på skeppet
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             red = Random.Range(0, 1f);
             green = Random.Range(0, 1f);
             blue = Random.Range(0, 1f);
             shipRend.color = newColor;
-            shipRend.color = new Color(red,green,blue);
-
+            shipRend.color = new Color(red, green, blue);
         }
-        //en timer som konstant ränkar sekunder med decimaler
-        if(timer > x)
+        //en timer som konstant ränkar sekunder 
+        if (timer > x)
         {
             print("Timer: " + x);
             x = x + 1;
         }
+
+
+
+
     }
 }

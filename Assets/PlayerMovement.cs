@@ -21,60 +21,50 @@ public class PlayerMovement : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        //slumpar skeppets fart 
-        shipSpeed = Random.Range(1, 11);
-        //slumpar skeppet X och Y koordinater som sedan placeras på de koordinaterna med Vector3
-        randomisedX_Coordinates = Random.Range(-8.5f, 8.5f);
-        randomisedY_Coordinates = Random.Range(-4.5f, 4.5f);
-        shipSpawn.position = new Vector3(randomisedX_Coordinates, randomisedY_Coordinates);
+        shipSpeed = Random.Range(1, 11);  //slumpar skeppets fart 
+        randomisedX_Coordinates = Random.Range(-8.5f, 8.5f); //slumpar skeppets X kordinater
+        randomisedY_Coordinates = Random.Range(-4.5f, 4.5f); //slumpar skeppets Y kordinater
+        shipSpawn.position = new Vector3(randomisedX_Coordinates, randomisedY_Coordinates); //tar X och Y kordinaterna och placerar skeppet med vector 
     }
 
     // Update is called once per frame
     void Update()
     {
-        //timer variabel som konsistent ökar varje frame och asisterar linje 62-66
-        timer = timer += Time.deltaTime;
-        //gör så att skeppet rör sig framåt automatiskt
-        transform.Translate(shipSpeed * Time.deltaTime, 0, 0, Space.Self);
+        timer = timer += Time.deltaTime; //timer variabel som konsistent ökar varje frame och asisterar linje 62-66
+        transform.Translate(shipSpeed * Time.deltaTime, 0, 0, Space.Self); //gör så att skeppet rör sig framåt automatiskt
 
-        //när D:knappen trycks ner snurar skeppet åt höger och blir blått
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D)) //om D:knappen trycks in
         {
-            transform.Rotate(0, 0, rotationSpeedRight * Time.deltaTime);
-            shipRend.color = newColor;
-            shipRend.color = new Color(0f, 0f, 1f);
+            transform.Rotate(0, 0, rotationSpeedRight * Time.deltaTime); //gör att skeppet roterar åt höger
+            shipRend.color = newColor; //gör så att skeppet kan få en ny färg
+            shipRend.color = new Color(0f, 0f, 1f); //sätter en ny färg på skeppet
         }
-        //när A:knappen trycks ner snurar skeppet åt vänster och blir grönt
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A)) //om A:knappen trycks ner
         {
-            transform.Rotate(0, 0, rotationSpeedLeft * Time.deltaTime);
-            shipRend.color = newColor;
-            shipRend.color = new Color(0f, 1f, 0.07f);
+            transform.Rotate(0, 0, rotationSpeedLeft * Time.deltaTime); //gör att skeppet roterar åt vänster
+            shipRend.color = newColor; //gör så att skeppet kan få en ny färg
+            shipRend.color = new Color(0f, 1f, 0.07f); //sätter en ny färg på skeppet
         }
-        //när S:knappen är nedtryckt halveras skeppets fart
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S)) //om S:knappen hålls nere
         {
-            shipSpeed = shipSpeed / 2;
+            shipSpeed = shipSpeed / 2; //halverar skeppets fart
         }
-        //när S:knappen släpps så dubblas skeppets fart
-        if (Input.GetKeyUp(KeyCode.S))
+        if (Input.GetKeyUp(KeyCode.S)) //när S:knappen släpps
         {
-            shipSpeed = shipSpeed * 2;
+            shipSpeed = shipSpeed * 2; //gör att skeppet återgår till sin orginal fart
         }
-        //när spacebar trycks ner randomiseras en färg på skeppet
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space)) //om spacebar trycks ner
         {
-            red = Random.Range(0, 1f);
-            green = Random.Range(0, 1f);
-            blue = Random.Range(0, 1f);
-            shipRend.color = newColor;
-            shipRend.color = new Color(red, green, blue);
+            red = Random.Range(0, 1f); //slumpar red
+            green = Random.Range(0, 1f); //slumpar green
+            blue = Random.Range(0, 1f); //slumpar blue
+            shipRend.color = newColor; //gör så att skeppet kan få en ny färg
+            shipRend.color = new Color(red, green, blue); //sätter en ny färg på skeppet med hjälp av red, green, blue 
         }
-        //en timer som konstant ränkar sekunder 
-        if (timer > x)
+        if (timer > x) //om timer variabeln går över X
         {
-            print("Timer: " + x);
-            x = x + 1;
+            print("Timer: " + x); //skriver timer och X värdet
+            x = x + 1; //lägger till 1 till X värdet
         }
     }
 }

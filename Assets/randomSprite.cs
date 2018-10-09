@@ -2,37 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class randomSprite : MonoBehaviour {
+public class randomSprite : MonoBehaviour
+{
     public SpriteRenderer shipRend;
     public Sprite sprite1;
     public Sprite sprite2;
     public Sprite sprite3;
     public int spriteRandom;
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
+        spriteRandom = Random.Range(0, 3); //slumpar spriteRandom:s värde
 
-        //en float som får ett slumpat värde
-        spriteRandom = Random.Range(0, 3);
 
-        //om randomSprite slumpar 0 så kommer sprite1 att synas
-        if (spriteRandom == 0)
+        if (spriteRandom == 0) //om spriteRandom är 0
         {
-            shipRend.sprite = sprite1;
+            shipRend.sprite = sprite1; //vissar sprite1
         }
-        //om randomSprite slumpar 1 så kommer sprite2 att synas
-        else if (spriteRandom == 1)
+        else if (spriteRandom == 1) //om spriteRandom är 1
         {
-            shipRend.sprite = sprite2;
+            shipRend.sprite = sprite2; //vissar sprite2
         }
-        //om randomSprite inte får någon av de övre så kommer sprite3 att synas
-        else
+        else //om spriteRandom inte är någon av de övre
         {
-            shipRend.sprite = sprite3;
+            shipRend.sprite = sprite3; //vissar sprite3
         }
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 }

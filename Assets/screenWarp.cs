@@ -14,10 +14,9 @@ public class screenWarp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //gör en vector variabel som sätter värdet på variabeln till skeppets position
-        Vector3 newPosition = transform.position; 
+        Vector3 newPosition = transform.position; //gör en vector variabel som sätter värdet på variabeln till skeppets position 
 
-        if(newPosition.x > 8.85 || newPosition.x < -8.85) //om skeppets position på x axeln är större än 8.85 eller mindre än -8.85 (kamerans höger och vänster sida) 
+        if (newPosition.x > 8.85 || newPosition.x < -8.85) //om skeppets position på x axeln är större än 8.85 eller mindre än -8.85 (kamerans höger och vänster sida) 
         {
             newPosition.x = -newPosition.x; //så kommer skeppets position att bli motsat vad den är
         }

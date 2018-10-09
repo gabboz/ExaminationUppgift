@@ -152,11 +152,8 @@ MonoBehaviour:
   green: 0.1
   blue: 0.1
   shipSpawn: {fileID: 368973323}
-  randomised_X_coordinates: 0
-  randomised_Y_coordinates: 0
-  ship_X_position: 0
-  ship_Y_position: 0
-  ship_position: {fileID: 368973323}
+  randomisedX_Coordinates: 0
+  randomisedY_Coordinates: 0
 --- !u!212 &368973322
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -210,7 +207,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 368973320}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.89, z: 0}
+  m_LocalPosition: {x: -3.79, y: 1.57, z: 0}
   m_LocalScale: {x: 2, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

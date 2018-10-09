@@ -15,11 +15,8 @@ public class PlayerMovement : MonoBehaviour
     public float green;
     public float blue;
     public Transform shipSpawn;
-    public float randomised_X_coordinates;
-    public float randomised_Y_coordinates;
-    public float ship_X_position;
-    public float ship_Y_position;
-    public Transform ship_position;
+    public float randomisedX_Coordinates;
+    public float randomisedY_Coordinates;
 
     // Use this for initialization
     void Start()
@@ -27,11 +24,11 @@ public class PlayerMovement : MonoBehaviour
         //slumpar skeppets fart 
         shipSpeed = Random.Range(1, 11);
         //slumpar skeppet X och Y koordinater som sedan placeras på de koordinaterna med Vector3
-        randomised_X_coordinates = Random.Range(-8.5f, 8.5f);
-        randomised_Y_coordinates = Random.Range(-4.5f, 4.5f);
-        shipSpawn.position = new Vector3(randomised_X_coordinates, randomised_Y_coordinates);
+        randomisedX_Coordinates = Random.Range(-8.5f, 8.5f);
+        randomisedY_Coordinates = Random.Range(-4.5f, 4.5f);
+        shipSpawn.position = new Vector3(randomisedX_Coordinates, randomisedY_Coordinates);
     }
-    
+
     // Update is called once per frame
     void Update()
     {
@@ -59,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
         {
             shipSpeed = shipSpeed / 2;
         }
-        //när S;knappen släpps så dubblas skeppets fart
+        //när S:knappen släpps så dubblas skeppets fart
         if (Input.GetKeyUp(KeyCode.S))
         {
             shipSpeed = shipSpeed * 2;
@@ -79,9 +76,5 @@ public class PlayerMovement : MonoBehaviour
             print("Timer: " + x);
             x = x + 1;
         }
-
-
-
-
     }
 }

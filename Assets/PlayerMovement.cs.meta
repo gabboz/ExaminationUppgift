@@ -3,7 +3,12 @@ guid: c786e3848da5175458bb7e18b9ba1625
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - shipRend: {instanceID: 0}
+  - sprite1: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  - sprite2: {instanceID: 0}
+  - sprite3: {instanceID: 0}
+  - shipSpawn: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

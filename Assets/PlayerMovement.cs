@@ -30,7 +30,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        rotationSpeedRight = rotationSpeedRight - 1f * Time.deltaTime; //gör så att skeppet svänger åt höger fortare destu mer tid som går
+        rotationSpeedLeft = rotationSpeedLeft + 1f * Time.deltaTime; //gör så att skeppet svänger åt vänster fortare destu mer tid som går
         timer = timer += Time.deltaTime; //timer variabel som konsistent ökar varje frame och asisterar linje 62-66
+        shipSpeed = shipSpeed + 1f * Time.deltaTime; //gör så att skeppet åker fortare destu mer tid som går
         transform.Translate(shipSpeed * Time.deltaTime, 0, 0, Space.Self); //gör så att skeppet rör sig framåt automatiskt
 
         if (Input.GetKey(KeyCode.D)) //om D:knappen trycks in
@@ -66,5 +69,6 @@ public class PlayerMovement : MonoBehaviour
             print("Timer: " + x); //skriver timer och X värdet
             x = x + 1; //lägger till 1 till X värdet
         }
+
     }
 }
